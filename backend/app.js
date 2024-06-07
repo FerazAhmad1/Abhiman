@@ -1,6 +1,7 @@
 const express = require("express");
 const User = require("./models/user.js");
 const Chatroom = require("./models/chatroom.js");
+const http = require("http");
 const UserChatroom = require("./models/userchatroom.js");
 const Message = require("./models/message.js");
 const sequelize = require("./utils/database.js");
@@ -11,7 +12,7 @@ const socket = require("socket.io");
 const cors = require("cors");
 
 const app = express();
-const server = app;
+const server = http.createServer(app);
 app.use(cors("*"));
 app.use(express.json());
 
