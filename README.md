@@ -27,7 +27,7 @@ The request body should be a JSON object containing the following fields:
     "deviceId": "gfhdcfdfdchchgchgchgg"
 }
 ## In response you will get jwt Token
-    ```json
+```json
 {
   "token":"jwt token"
 }
