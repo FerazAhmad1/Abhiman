@@ -48,7 +48,7 @@ exports.joinRoom = async (req, res) => {
     }
 
     const userInchatRoom = await UserChatRoom.findOne({
-      where: { roomId, userId: req.user.dataValues.id },
+      where: { chatroomId: roomId, userId: req.user.dataValues.id },
     });
 
     if (userInchatRoom) {

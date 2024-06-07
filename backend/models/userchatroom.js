@@ -17,7 +17,7 @@ const UserChatroom = sequelize.define("user_chatroom", {
     onUpdate: "CASCADE",
   },
   chatroomId: {
-    type: DataTypes.STRING,
+    type: DataTypes.INTEGER,
     allowNull: false,
     references: {
       model: "chatrooms",
