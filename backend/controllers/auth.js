@@ -16,12 +16,12 @@ exports.signup = async (req, res) => {
       userId: id = null,
       deviceId: device = null,
       name = null,
-      availCoins = null,
+
       phone = null,
       password = null,
-      role = "user",
     } = req.body;
-
+    const availCoins = 1500;
+    const role = "user";
     const response = await userModel.create({
       id,
       device,

@@ -7,9 +7,12 @@ const sequelize = require("./utils/database.js");
 const userRouter = require("./routes/user.js");
 const roomRouter = require("./routes/room.js");
 const messageRouter = require("./routes/message.js");
+const socket = require("socket.io");
+const cors = require("cors");
 
 const app = express();
-
+const server = app;
+app.use(cors("*"));
 app.use(express.json());
 
 app.use("/api/v1/user", userRouter);
@@ -33,5 +36,15 @@ Message.belongsTo(UserChatroom);
 (async () => {
   const data = await sequelize.sync();
 })();
-
+const io = socket(server, {
+  cors: {
+    origin: "*",
+  },
+});
+io.on("connection", (socket) => {
+  socket.on("joinroom", (userData) => {
+    socket.join(userData.roomId);
+    socket.emit("connected");
+  });
+});
 module.exports = app;
