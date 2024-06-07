@@ -26,7 +26,7 @@ The request body should be a JSON object containing the following fields:
     "phone": "6207571009",
     "deviceId": "gfhdcfdfdchchgchgchgg"
 }
-## In response you will get jwt Token
+### Endpoint
 
 {
   "token":"jwt token"
