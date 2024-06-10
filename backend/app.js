@@ -42,10 +42,5 @@ const io = socket(server, {
     origin: "*",
   },
 });
-io.on("connection", (socket) => {
-  socket.on("joinroom", (userData) => {
-    socket.join(userData.roomId);
-    socket.emit("connected");
-  });
-});
+
 module.exports = app;
